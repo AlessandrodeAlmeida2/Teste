@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Criar Objeto</title>
+  </head>
+  <body>
+    <h1>Criar Objeto</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="description">Descrição:</label>
+      <textarea id="description" name="description" required></textarea
+      ><br /><br />
+
+      <button type="submit">Criar</button>
+    </form>
+  </body>
+</html>
