@@ -18,7 +18,7 @@ def create_view(request):
 
 def read_view(request):
     objects = MyModel.objects.all()
-    return render(request, 'myapp/read_template.html', {'objects': objects})
+    return render(request, 'myapp/templates/myapp/read_template.html', {'objects': objects})
 
 def update_view(request, pk):
     if request.method == "POST":
