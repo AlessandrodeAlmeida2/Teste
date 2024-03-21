@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+    <title>Criar Objeto</title>
+  </head>
+  <body>
+    <form method="POST" action="sign_up/">
+        {% csrf_token %}
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Senha:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="Cadastrar">
+    </form>
+    
+    <form method="POST" action="sign_in/">
+        {% csrf_token %}
+        <label for="email_signin">Email:</label><br>
+        <input type="email" id="email_signin" name="email"><br>
+        <label for="password_signin">Senha:</label><br>
+        <input type="password" id="password_signin" name="password"><br>
+        <input type="submit" value="Entrar">
+    </form>
+    
+  </body>
+</html>

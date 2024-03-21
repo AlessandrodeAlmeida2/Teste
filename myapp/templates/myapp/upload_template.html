@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload de Foto</title>
+  </head>
+  <body>
+    <h1>Upload de Foto</h1>
+    <form action="/upload_photo" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="photo">Escolha uma foto:</label>
+      <input type="file" id="photo" name="photo" accept="image/*"><br /><br />
+      <input type="submit" value="Enviar">
+    </form>
+  </body>
+</html>

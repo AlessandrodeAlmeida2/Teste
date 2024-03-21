@@ -1,15 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/static/myapp/style.css">
     <title>Lista de Objetos</title>
   </head>
   <body>
-    <h1>Lista de Objetos</h1>
-    <ul>
+    <div class = "container">
+      <h1>Lista de Objetos</h1>
       {% for object in objects %}
-      <li>{{ object.name }}: {{ object.description }}</li>
+        <li>
+          {{ object.name }}: {{ object.description }}
+          <img src="{{ object.photo_url }}" alt="img">
+          {% if object.id %}
+            <form action="{% url 'update' object.id %}" method="GET">
+              <input type="submit" value="Atualizar">
+            </form>
+            <form action="{% url 'delete' object.id %}" method="POST">
+              {% csrf_token %}
+              <input type="submit" value="Deletar">
+            </form>
+          {% else %}
+            <p>Este objeto não tem um id válido.</p>
+          {% endif %}
+        </li>
       {% endfor %}
-    </ul>
+
+    </div>
   </body>
 </html>
