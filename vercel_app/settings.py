@@ -56,10 +56,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'vercel_app.urls'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Or 'postgresql', 'mysql', 'oracle', etc.
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Or the name of your database
-        # Other options may be needed depending on the database engine
+   
     }
 }
 
