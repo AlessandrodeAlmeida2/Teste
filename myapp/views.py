@@ -25,7 +25,6 @@ def sign_up(request):
         return redirect('create')
 
 # Autenticar um usuário
-# Autenticar um usuário
 def sign_in(request):
     if request.method == "POST":
         email = request.POST.get('email')
