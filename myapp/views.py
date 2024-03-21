@@ -32,14 +32,6 @@ def sign_in(request):
         user = supabase.auth.sign_in_with_password({"email": email, "password": password})
         print(user)
 
-        # Get the Django user model
-        User = get_user_model()
-
-        # Try to get the Django user corresponding to the Supabase user
-
-        # Log in the Django user
-        django_login(request, user)
-
         return redirect('create')
 
 # Desconectar um usuário
