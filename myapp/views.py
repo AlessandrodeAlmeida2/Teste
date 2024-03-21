@@ -18,7 +18,7 @@ def sign_up(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         try:
-            result = supabase.auth.sign_up({"email": email, "password": password})
+            user = supabase.auth.sign_up({"email": email, "password": password})
             print('Usuário cadastrado com sucesso:', result.data)
         except Exception as e:
             print('Erro ao cadastrar:', str(e))
@@ -29,18 +29,13 @@ def sign_in(request):
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
-        session = supabase.auth.sign_in_with_password({"email": email, "password": password})
-        print(session.user)
+        user = supabase.auth.sign_in_with_password({"email": email, "password": password})
+        print(user)
 
         # Get the Django user model
         User = get_user_model()
 
         # Try to get the Django user corresponding to the Supabase user
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            # If the Django user does not exist, create it
-            user = User.objects.create_user(email, password)
 
         # Log in the Django user
         django_login(request, user)
